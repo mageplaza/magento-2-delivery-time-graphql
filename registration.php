@@ -1,4 +1,7 @@
 <?php
+
+use Magento\Framework\Component\ComponentRegistrar;
+
 /**
  * Mageplaza
  *
@@ -18,9 +21,8 @@
  * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
  * @license     https://www.mageplaza.com/LICENSE.txt
  */
-
-\Magento\Framework\Component\ComponentRegistrar::register(
-    \Magento\Framework\Component\ComponentRegistrar::MODULE,
+ComponentRegistrar::register(
+    ComponentRegistrar::MODULE,
     'Mageplaza_DeliveryTimeGraphQl',
     __DIR__
 );
