@@ -21,11 +21,9 @@
 
 namespace Mageplaza\DeliveryTimeGraphQl\Model\Resolver;
 
-use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\GraphQl\Config\Element\Field;
 use Magento\Framework\GraphQl\Query\ResolverInterface;
 use Magento\Framework\GraphQl\Schema\Type\ResolveInfo;
-use Magento\Store\Model\ScopeInterface;
 use Mageplaza\DeliveryTime\Helper\Data as MpDtHelper;
 
 /**
@@ -40,22 +38,14 @@ class Delivery implements ResolverInterface
     private $mpDtHelper;
 
     /**
-     * @var ScopeConfigInterface
-     */
-    private $scopeConfig;
-
-    /**
      * Delivery constructor.
      *
      * @param MpDtHelper $mpDtHelper
-     * @param ScopeConfigInterface $scopeConfig
      */
     public function __construct(
-        MpDtHelper $mpDtHelper,
-        ScopeConfigInterface $scopeConfig
+        MpDtHelper $mpDtHelper
     ) {
-        $this->mpDtHelper  = $mpDtHelper;
-        $this->scopeConfig = $scopeConfig;
+        $this->mpDtHelper = $mpDtHelper;
     }
 
     /**
@@ -68,23 +58,51 @@ class Delivery implements ResolverInterface
         array $value = null,
         array $args = null
     ) {
-        if (!$this->scopeConfig->isSetFlag('mpdeliverytime/general/enabled', ScopeInterface::SCOPE_STORE)) {
+        if (!$this->mpDtHelper->isEnabled()) {
             return [];
         }
-        $dateOffArr = array_values($this->mpDtHelper->getDateOff());
-        $dateOff    = [];
-        foreach ($dateOffArr as $date) {
-            $dateOff[] = array_values($date)[0];
-        }
+
+        $dayOff = $this->mpDtHelper->getDaysOff() ? explode(',', $this->mpDtHelper->getDaysOff()) : [];
 
         return [
             'isEnabledDeliveryTime'      => $this->mpDtHelper->isEnabledDeliveryTime(),
             'isEnabledHouseSecurityCode' => $this->mpDtHelper->isEnabledHouseSecurityCode(),
             'isEnabledDeliveryComment'   => $this->mpDtHelper->isEnabledDeliveryComment(),
             'deliveryDateFormat'         => $this->mpDtHelper->getDateFormat(),
-            'deliveryDaysOff'            => $this->mpDtHelper->getDaysOff(),
-            'deliveryDateOff'            => $dateOff,
-            'deliveryTime'               => $this->mpDtHelper->getDeliveryTIme()
+            'deliveryDaysOff'            => $dayOff,
+            'deliveryDateOff'            => $this->getDateOff(),
+            'deliveryTime'               => $this->getDeliveryTime()
         ];
+    }
+
+    /**
+     * @return array
+     */
+    private function getDateOff()
+    {
+        $dateOffSetting = $this->mpDtHelper->getDateOff() ?? [];
+        $dateOff        = [];
+        foreach (array_values($dateOffSetting) as $date) {
+            $dateOff[] = array_values($date)[0];
+        }
+
+        return $dateOff;
+    }
+
+    /**
+     * @return array
+     */
+    private function getDeliveryTime()
+    {
+        $deliveryTimeSetting = $this->mpDtHelper->getDeliveryTIme() ?? [];
+        $deliveryTime        = [];
+        foreach (array_values($deliveryTimeSetting) as $date) {
+            /*
+             * @TODO Apply format from setting (currently using '-')
+             */
+            $deliveryTime[] = implode('-', array_values($date)[0]);
+        }
+
+        return $deliveryTime;
     }
 }
