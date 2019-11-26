@@ -94,6 +94,10 @@ class Delivery implements ResolverInterface
      */
     private function getDeliveryTime()
     {
+        if (!$this->mpDtHelper->isEnabledDeliveryTime()) {
+            return [];
+        }
+
         $deliveryTimeSetting = $this->mpDtHelper->getDeliveryTIme() ?? [];
         $deliveryTime        = [];
         foreach (array_values($deliveryTimeSetting) as $date) {
