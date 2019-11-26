@@ -97,10 +97,7 @@ class Delivery implements ResolverInterface
         $deliveryTimeSetting = $this->mpDtHelper->getDeliveryTIme() ?? [];
         $deliveryTime        = [];
         foreach (array_values($deliveryTimeSetting) as $date) {
-            /*
-             * @TODO Apply format from setting (currently using '-')
-             */
-            $deliveryTime[] = implode('-', array_values($date)[0]);
+            $deliveryTime[] = implode(':', array_values($date)[0]);
         }
 
         return $deliveryTime;
