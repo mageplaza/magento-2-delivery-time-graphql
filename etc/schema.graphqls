@@ -23,7 +23,7 @@ type Query {
 type DeliveryInformation @doc(description: "Mageplaza Delivery Time Information") {
     isEnabledDeliveryTime     : String @doc(description: "Is the module enabled")
     isEnabledHouseSecurityCode: String @doc(description: "Allow customers to fill their house security codes. ")
-    isEnabledDeliveryComment  : String @doc(description: "Allow customers to commend on their orders.")
+    isEnabledDeliveryComment  : String @doc(description: "Allow customers to comment on their orders.")
     deliveryDateFormat        : String @doc(description: "Format of the Delivery Date")
     deliveryDaysOff           : [String] @doc(description: "Days off in a week, values: 0-6") #@TODO declare enum for delivery-day-off
     deliveryDateOff           : [String] @doc(description: "Specific date off")
