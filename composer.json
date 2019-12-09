@@ -1,8 +1,8 @@
 {
   "name": "mageplaza/module-delivery-time-graph-ql",
-  "description": "Magento 2 Delivery Time Graph Ql Extension",
+  "description": "Mageplaza Magento 2 Delivery Time Graph Ql",
   "require": {
-    "mageplaza/module-core": "^1.4.4"
+    "mageplaza/module-core": "^1.4.5"
   },
   "type": "magento2-module",
   "version": "1.0.0",

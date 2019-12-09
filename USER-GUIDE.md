@@ -1,12 +1,12 @@
 ## Documentation
 
 - Installation guide: https://www.mageplaza.com/install-magento-2-extension/#solution-1-ready-to-paste
-- User Guide: https://docs.mageplaza.com/delivery-time-graph-ql/
+- User Guide: https://docs.mageplaza.com/delivery-time/
 - Report a security issue to security@mageplaza.com
-- Product page: https://www.mageplaza.com/magento-2-delivery-time-graph-ql/
+- Product page: https://www.mageplaza.com/magento-2-delivery-time/
 - FAQs: https://www.mageplaza.com/faqs/
 - Get Support: https://www.mageplaza.com/contact.html or support@mageplaza.com
-- Changelog: https://www.mageplaza.com/releases/delivery-time-graph-ql/
+- Changelog: https://www.mageplaza.com/releases/delivery-time/
 - License agreement: https://www.mageplaza.com/LICENSE.txt
 
 ## How to install
