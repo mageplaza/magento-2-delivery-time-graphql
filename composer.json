@@ -1,6 +1,6 @@
 {
   "name": "mageplaza/module-delivery-time-graphql",
-  "description": "Mageplaza Magento 2 Delivery Time Graph Ql",
+  "description": "Mageplaza Magento 2 Delivery Time GraphQl",
   "require": {
     "mageplaza/module-core": "^1.4.5"
   },
