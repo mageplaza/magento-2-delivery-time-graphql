@@ -4,49 +4,30 @@
 - User Guide: https://docs.mageplaza.com/delivery-time/
 - Report a security issue to security@mageplaza.com
 - Product page: https://www.mageplaza.com/magento-2-delivery-time/
+- Github page: https://github.com/mageplaza/magento-2-delivery-time-graphql
 - FAQs: https://www.mageplaza.com/faqs/
 - Get Support: https://www.mageplaza.com/contact.html or support@mageplaza.com
 - Changelog: https://www.mageplaza.com/releases/delivery-time/
 - License agreement: https://www.mageplaza.com/LICENSE.txt
 
 ## How to install
-
-### Install ready-to-paste package (Recommended)
-
-- Installation guide: https://www.mageplaza.com/install-magento-2-extension/
-
-## How to upgrade
-
-1. Backup
-
-Backup your Magento code, database before upgrading.
-
-2. Remove DeliveryTimeGraphQl folder
-
-In case of customization, you should backup the customized files and modify in newer version.
-Now you remove `app/code/Mageplaza/DeliveryTimeGraphQl` folder. In this step, you can copy override DeliveryTimeGraphQl folder but this may cause of compilation issue. That why you should remove it.
-
-3. Upload new version
-Upload this package to Magento root directory
-
-4. Run command line:
+Run the following command in Magento 2 root folder:
 
 ```
+composer require mageplaza/module-delivery-time-graphql
 php bin/magento setup:upgrade
 php bin/magento setup:static-content:deploy
 ```
 
+## How to use
 
-## FAQs
+To start working with GraphQl in Magento, you need the following:
+- Use Magento 2.3.x. Returns site to developer mode
+- Install [chrome extension](https://chrome.google.com/webstore/detail/chromeiql/fkkiamalmpiidkljmicmjfbieiclmeij?hl=en) (currently does not support other browsers)
+- Set **GraphQL endpoint** as `http://<magento2-3-server>/graphql` in url box, click **Set endpoint**. (e.g. http://develop.mageplaza.com/graphql/ce232/graphql)
+- Mageplaza-supported queries are fully written in the **Description** section of `Query.deliveryTime.DeliveryInfomation`
 
-
-#### Q: I got error: `Mageplaza_Core has been already defined`
-A: Read solution: https://github.com/mageplaza/module-core/issues/3
-
-
-#### Q: My site is down
-A: Please follow this guide: https://www.mageplaza.com/blog/magento-site-down.html
-
+![](https://i.imgur.com/8OW0Y2G.png)
 
 ## Support
 
