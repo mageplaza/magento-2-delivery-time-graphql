@@ -29,3 +29,17 @@ type DeliveryInformation @doc(description: "Mageplaza Delivery Time Information"
     deliveryDateOff           : [String] @doc(description: "Specific date off")
     deliveryTime              : [String] @doc(description: "Specific hour and minute in delivery time")
 }
+
+type Mutation {
+    MpDeliveryTime (
+        cart_id: String! @doc(description: "Cart Id")
+        mp_delivery_time: DeliveryTimeInput @doc(description: "Delivery Information")
+    ): Boolean @resolver(class: "\\Mageplaza\\DeliveryTimeGraphQl\\Model\\Resolver\\DeliveryMutation") @doc(description: "Delivery Time Information")
+}
+
+input DeliveryTimeInput {
+    mp_delivery_date: String
+    mp_delivery_time: String
+    mp_house_security_code: String
+    mp_delivery_comment: String
+}
