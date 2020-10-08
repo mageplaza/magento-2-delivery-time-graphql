@@ -71,12 +71,6 @@ class DeliveryMutation implements ResolverInterface
         }
 
         if ($this->helperData->versionCompare('2.3.3')) {
-            if ($context->getExtensionAttributes()->getIsCustomer() === false) {
-                throw new GraphQlAuthorizationException(__('The current customer isn\'t authorized.'));
-            }
-        }
-
-        if ($this->helperData->versionCompare('2.3.3')) {
             $store = $context->getExtensionAttributes()->getStore();
             $quote = $this->getCartForUser->execute($args['cart_id'], $context->getUserId(), (int)$store->getId());
         } else {
