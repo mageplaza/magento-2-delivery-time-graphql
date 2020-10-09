@@ -1,4 +1,4 @@
-# Delivery Time GraphQl
+# Magento 2 Delivery Time GraphQL
 
 ## How to install
 Run the following command in Magento 2 root folder:
