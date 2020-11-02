@@ -1,6 +1,8 @@
-# Delivery Time GraphQl
+# Magento 2 Delivery Time GraphQL/PWA
 
-## How to install
+Magento 2 Delivery Time GraphQL is a part of Delivery Time extension that add GraphQL features, this support for PWA Studio.
+## 1. How to install
+
 Run the following command in Magento 2 root folder:
 
 ```
@@ -9,12 +11,29 @@ php bin/magento setup:upgrade
 php bin/magento setup:static-content:deploy
 ```
 
-## How to use
+**Note:**
+Magento 2 Delivery Time GraphQL requires installing [Mageplaza Delivery Time](https://www.mageplaza.com/magento-2-delivery-time-extension/) in your Magento installation.
 
-To start working with GraphQl in Magento, you need the following:
-- Use Magento 2.3.x. Returns site to developer mode
-- Install [chrome extension](https://chrome.google.com/webstore/detail/chromeiql/fkkiamalmpiidkljmicmjfbieiclmeij?hl=en) (currently does not support other browsers)
-- Set **GraphQL endpoint** as `http://<magento2-3-server>/graphql` in url box, click **Set endpoint**. (e.g. http://develop.mageplaza.com/graphql/ce232/graphql)
-- Mageplaza-supported queries are fully written in the **Description** section of `Query.deliveryTime.DeliveryInfomation`
+## 2. How to use
 
-![](https://i.imgur.com/8OW0Y2G.png)
+To perform GraphQL queries in Magento, please do the following requirements:
+
+- Use Magento 2.3.x or higher. Set your site to [developer mode](https://www.mageplaza.com/devdocs/enable-disable-developer-mode-magento-2.html).
+- Set GraphQL endpoint as `http://<magento2-server>/graphql` in url box, click **Set endpoint**. 
+(e.g. `http://dev.site.com/graphql`)
+- To view the queries that the **Mageplaza Delivery Time GraphQL** extension supports, you can look in `Docs > Query` in the right corner
+
+## 3. Devdocs
+
+- [Delivery Time API & examples](https://documenter.getpostman.com/view/10589000/TVYM4FYa)
+- [Delivery Time GraphQL & examples](https://documenter.getpostman.com/view/10589000/SzYXWeR9?version=latest)
+
+
+## 4. Contribute to this module
+
+Feel free to **Fork** and contribute to this module and create a pull request so we will merge your changes main branch.
+
+## 5. Get Support
+
+- Feel free to [contact us](https://www.mageplaza.com/contact.html) if you have any further questions.
+- Like this project, Give us a **Star** ![star](https://i.imgur.com/S8e0ctO.png)
