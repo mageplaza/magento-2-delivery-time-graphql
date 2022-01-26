@@ -43,3 +43,14 @@ input DeliveryTimeInput {
     mp_house_security_code: String
     mp_delivery_comment: String
 }
+
+type CustomerOrder {
+    mp_delivery_information: MpDeliveryInformationOutput @doc(description: "Mageplaza Delivery Information") @resolver(class: "\\Mageplaza\\DeliveryTimeGraphQl\\Model\\Resolver\\Orders\\MpDeliveryInformation")
+}
+
+type MpDeliveryInformationOutput {
+    mp_delivery_date: String
+    mp_delivery_time: String
+    mp_house_security_code: String
+    mp_delivery_comment: String
+}
